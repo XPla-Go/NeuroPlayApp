@@ -1,0 +1,561 @@
+body, html {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+body *, html * {
+  font-family: "Comfortaa", cursive;
+}
+
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+button:focus {
+  outline: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.wall {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: url("img/wall.jpg") center;
+  background-size: cover;
+  z-index: -1000;
+  transition: 0.2s ease-in-out;
+}
+
+#startScreenSection {
+  position: absolute;
+  top: 0;
+  display: flex;
+  height: 100vh;
+  width: 100vW;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 1s ease-in-out;
+}
+#startScreenSection h2 {
+  margin: 20px 0;
+  font-size: 400%;
+  color: #fff;
+  font-weight: 800;
+}
+#startScreenSection button {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background: transparent;
+  border: none;
+  outline: none;
+  transition: 0.2s ease-in-out;
+  border-radius: 50%;
+}
+#startScreenSection button:hover {
+  opacity: 0.6;
+}
+#startScreenSection button img {
+  width: 100%;
+  height: 100%;
+}
+
+.openButton {
+  padding: 10px;
+  transform: none;
+  transition: 0.2s ease-in-out;
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 40px;
+  box-sizing: content-box;
+  background: none;
+}
+.openButton:hover {
+  background: none;
+  opacity: 0.6;
+}
+.openButton img {
+  height: 40px;
+  width: 40px;
+}
+
+.settingsBox {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 100;
+}
+.settingsBox ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: rgba(0, 0, 0, 0.3);
+  align-items: stretch;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+.settingsBox ul li {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+}
+.settingsBox ul li:last-child {
+  border: none;
+}
+.settingsBox ul li button {
+  padding: 15px;
+  width: 100%;
+  background: none;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 120%;
+  transition: 0.15s ease-in-out;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: left;
+}
+.settingsBox ul li button:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.informationBox {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(100vw - 90px);
+  max-width: 400px;
+  z-index: 90;
+}
+.informationBox button {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  background: none;
+}
+.informationBox button:hover {
+  background: none;
+}
+.informationBox p {
+  margin: 0;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  font-size: 120%;
+  backdrop-filter: blur(5px);
+}
+
+.medConBox {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.medConBox p {
+  margin: 5px 0;
+  color: #ffffff;
+  font-size: 120%;
+}
+
+.gamePanel {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: flex-start;
+  transition: 1s ease-in-out;
+}
+.gamePanel .lamp {
+  padding: 0;
+  display: flex;
+  width: 300px;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: relative;
+}
+.gamePanel .lamp .lampGlassCircle {
+  display: flex;
+  height: 300px;
+  width: 300px;
+  border-width: 0 2px 7px 7px;
+  border-style: solid;
+  border-radius: 50%;
+  transform: translateY(-18px);
+  transition: 0.1s ease-in-out;
+  z-index: 10;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.gamePanel .lamp .lampGlassCircleBack {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  bottom: 7px;
+  box-sizing: content-box;
+  background: url("img/glass.png");
+  background-size: 200% 110%;
+  animation: texture-spin 10s infinite ease-in-out;
+  transform: translateY(-18px);
+  border-radius: 50%;
+  border-width: 0 2px 7px 7px;
+  opacity: 0.5;
+  transition: 0.2s ease-in-out;
+  box-shadow: inset -10px 0 30px rgba(0, 0, 0, 0.7), inset 10px 5px 30px rgba(255, 255, 255, 0.5);
+}
+.gamePanel .lamp .lampGlassCircleBack:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+.gamePanel .lamp .lampGlassCircleBack:after {
+  opacity: 0.2;
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: url("img/glass-mirror.png") center;
+  background-size: 200% 110%;
+  z-index: 5;
+  border-radius: 50%;
+  animation: texture-spin 10s infinite ease-in-out;
+  transform: scaleX(-1);
+  filter: blur(2px);
+}
+.gamePanel .lamp .lampRectangle {
+  height: 100px;
+  width: 150px;
+  z-index: 12;
+  border-radius: 10px;
+  border-width: 0 2px 5px 2px;
+  border-style: solid;
+  transition: 0.2s ease-in-out;
+}
+.gamePanel .lamp .lampRectangleBack {
+  position: absolute;
+  top: 100px;
+  height: 100px;
+  width: 150px;
+  background: url("img/plastic.jpg") center;
+  background-size: 200% 110%;
+  z-index: 11;
+  border-radius: 10px;
+  animation: texture-spin 10s infinite ease-in-out;
+  box-shadow: inset -10px 0 30px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+.gamePanel .lamp .lampWire {
+  height: 100px;
+  width: 20px;
+  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+.gamePanel .lamp .glow-wires {
+  content: "";
+  top: 40px;
+  height: 180px;
+  width: 80px;
+  position: absolute;
+  background: #fafa96;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.5;
+  border-radius: 30px;
+  transition: 0.2s ease-in-out;
+  animation: 10s glow-spin infinite ease-in-out;
+}
+.gamePanel .lamp .wires-box {
+  display: flex;
+  z-index: 10;
+  justify-content: space-between;
+  width: 80px;
+  border-bottom: 5px solid #323232;
+  box-sizing: border-box;
+  animation: 10s wires-spin ease-in-out infinite;
+  transition: 0.2s ease-in-out;
+}
+.gamePanel .lamp .wires-box svg {
+  width: 30px;
+  color: red;
+  fill: none;
+  stroke-width: 7px;
+  transition: 0.2s ease-in-out;
+}
+.gamePanel .lamp .wires-box svg:last-child {
+  transform: scaleX(-1);
+}
+.gamePanel .lamp .stand-wires {
+  width: 80px;
+  height: 40px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset -10px 0 30px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+
+.fly {
+  width: 40px;
+  height: 80px;
+  position: absolute;
+  background: url("img/fly-body.svg");
+  bottom: calc((100% - 512px) / 2);
+  left: 50%;
+  z-index: 10;
+}
+.fly:last-child {
+  animation-delay: 0.5s;
+}
+.fly .wings {
+  position: absolute;
+  display: flex;
+  height: 30px;
+  width: 100px;
+  top: 17px;
+  left: -30px;
+  animation: 0.05s winds-spin infinite linear;
+  z-index: 2;
+}
+.fly .wings img {
+  width: 50px;
+}
+.fly .wings img:last-child {
+  transform: scaleX(-1);
+}
+
+.standing:after {
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+.standing .wings {
+  animation: none;
+}
+
+.firstFly {
+  transform: translateX(-100px);
+  animation: 1s first-fly linear infinite;
+}
+
+.secondFly {
+  transform: translateX(100px);
+  animation: 2s second-fly linear infinite;
+}
+
+@keyframes first-fly {
+  0% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(-100px) rotate(-90deg);
+  }
+  8% {
+    bottom: calc((100% - 648px) / 2);
+    left: calc(50% - 100px);
+    transform: translateX(-100px) rotate(-90deg);
+  }
+  17% {
+    bottom: calc((100% - 620px) / 2);
+    left: calc(50% - 200px);
+    transform: translateX(-100px) rotate(-45deg);
+  }
+  25% {
+    bottom: calc((100% - 512px) / 2);
+    left: calc(50% - 300px);
+    transform: translateX(-100px) rotate(0);
+  }
+  33% {
+    bottom: calc((100% - 324px) / 2);
+    left: calc(50% - 200px);
+    transform: translateX(-100px) rotate(45deg);
+  }
+  42% {
+    bottom: calc((100% - 216px) / 2);
+    left: calc(50% - 100px);
+    transform: translateX(-100px) rotate(90deg);
+  }
+  50% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(-100px) rotate(90deg);
+  }
+  58% {
+    bottom: calc((100% - 648px) / 2);
+    left: calc(50% + 100px);
+    transform: translateX(-100px) rotate(90deg);
+  }
+  66% {
+    bottom: calc((100% - 620px) / 2);
+    left: calc(50% + 200px);
+    transform: translateX(-100px) rotate(45deg);
+  }
+  75% {
+    bottom: calc((100% - 512px) / 2);
+    left: calc(50% + 300px);
+    transform: translateX(-100px) rotate(0);
+  }
+  83% {
+    bottom: calc((100% - 324px) / 2);
+    left: calc(50% + 200px);
+    transform: translateX(-100px) rotate(-45deg);
+  }
+  92% {
+    bottom: calc((100% - 216px) / 2);
+    left: calc(50% + 100px);
+    transform: translateX(-100px) rotate(-90deg);
+  }
+  100% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(-100px) rotate(-90deg);
+  }
+}
+@keyframes second-fly {
+  0% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(100px) rotate(-90deg);
+  }
+  8% {
+    bottom: calc((100% - 648px) / 2);
+    left: calc(50% - 100px);
+    transform: translateX(100px) rotate(-90deg);
+  }
+  17% {
+    bottom: calc((100% - 620px) / 2);
+    left: calc(50% - 200px);
+    transform: translateX(100px) rotate(-45deg);
+  }
+  25% {
+    bottom: calc((100% - 512px) / 2);
+    left: calc(50% - 300px);
+    transform: translateX(100px) rotate(0);
+  }
+  33% {
+    bottom: calc((100% - 324px) / 2);
+    left: calc(50% - 200px);
+    transform: translateX(100px) rotate(45deg);
+  }
+  42% {
+    bottom: calc((100% - 216px) / 2);
+    left: calc(50% - 100px);
+    transform: translateX(100px) rotate(90deg);
+  }
+  50% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(100px) rotate(90deg);
+  }
+  58% {
+    bottom: calc((100% - 648px) / 2);
+    left: calc(50% + 100px);
+    transform: translateX(100px) rotate(90deg);
+  }
+  66% {
+    bottom: calc((100% - 620px) / 2);
+    left: calc(50% + 200px);
+    transform: translateX(100px) rotate(45deg);
+  }
+  75% {
+    bottom: calc((100% - 512px) / 2);
+    left: calc(50% + 300px);
+    transform: translateX(100px) rotate(0);
+  }
+  83% {
+    bottom: calc((100% - 324px) / 2);
+    left: calc(50% + 200px);
+    transform: translateX(100px) rotate(-45deg);
+  }
+  92% {
+    bottom: calc((100% - 216px) / 2);
+    left: calc(50% + 100px);
+    transform: translateX(100px) rotate(-90deg);
+  }
+  100% {
+    bottom: calc((100% - 512px) / 2);
+    left: 50%;
+    transform: translateX(100px) rotate(-90deg);
+  }
+}
+@keyframes winds-spin {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(40deg);
+  }
+  50% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(-40deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes glow-spin {
+  0% {
+    width: 80px;
+  }
+  25% {
+    width: 20px;
+  }
+  50% {
+    width: 80px;
+  }
+  75% {
+    width: 20px;
+  }
+  100% {
+    width: 80px;
+  }
+}
+@keyframes wires-spin {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes texture-spin {
+  0% {
+    background-position: left center;
+  }
+  50% {
+    background-position: right center;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
