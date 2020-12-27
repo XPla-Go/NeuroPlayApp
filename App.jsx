@@ -121,7 +121,7 @@ function Information(props) {
             </button>
             <p
                 style={{transform: isInformationOpen ? "translateX(0)" : "translateX(calc(100% + 20px)"}}>
-                {props.languageInd === "ru" ? "Версия: 1.0.0" : "Version: 1.0.0"}
+                {props.languageInd === "ru" ? "Версия: 1.0.1" : "Version: 1.0.1"}
             </p>
         </div>
     )
