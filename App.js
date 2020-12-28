@@ -3,7 +3,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 /*If you want to check the effectiveness of the program without the NeuroPlay equipment,
 then replace the code from lines 36 to 54 with the attached ones and compile the jsx file
 by going to cmd in the project folder and insert
-"npx babel --watch App.jsx --out-dir. - -presets react-app / prod"
+"npx babel --watch App.jsx --out-dir . --presets react-app / prod"
 after installing babel in the npm modules.
 
     const [concentrationValue, setConcentrationValue] = useState(0)
