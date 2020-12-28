@@ -1,7 +1,7 @@
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 /*If you want to check the effectiveness of the program without the NeuroPlay equipment,
-then replace the code from lines 36 to 55 with the attached ones and compile the jsx file
+then replace the code from lines 36 to 54 with the attached ones and compile the jsx file
 by going to cmd in the project folder and insert
 "npx babel --watch App.jsx --out-dir. - -presets react-app / prod"
 after installing babel in the npm modules.
@@ -221,7 +221,12 @@ function Information(props) {
             "p",
             {
                 style: { transform: isInformationOpen ? "translateX(0)" : "translateX(calc(100% + 20px)" } },
-            props.languageInd === "ru" ? "Версия: 1.0.0" : "Version: 1.0.0"
+            props.languageInd === "ru" ? "Заставьте лампочку светиться ярче, повысив концентрацию, но учтите, что мухи при этом будут летать быстрее." : "Make the bulb glow brighter for more concentration, but keep in mind that the flies will fly faster.",
+            React.createElement(
+                "span",
+                null,
+                props.languageInd === "ru" ? "Версия: 1.0.2" : "Version: 1.0.2"
+            )
         )
     );
 }

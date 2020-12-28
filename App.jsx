@@ -1,5 +1,5 @@
 /*If you want to check the effectiveness of the program without the NeuroPlay equipment,
-then replace the code from lines 36 to 55 with the attached ones and compile the jsx file
+then replace the code from lines 36 to 54 with the attached ones and compile the jsx file
 by going to cmd in the project folder and insert
 "npx babel --watch App.jsx --out-dir. - -presets react-app / prod"
 after installing babel in the npm modules.
@@ -121,7 +121,8 @@ function Information(props) {
             </button>
             <p
                 style={{transform: isInformationOpen ? "translateX(0)" : "translateX(calc(100% + 20px)"}}>
-                {props.languageInd === "ru" ? "Версия: 1.0.1" : "Version: 1.0.1"}
+                {props.languageInd === "ru" ? "Заставьте лампочку светиться ярче, повысив концентрацию, но учтите, что мухи при этом будут летать быстрее." : "Make the bulb glow brighter for more concentration, but keep in mind that the flies will fly faster."}
+                <span>{props.languageInd === "ru" ? "Версия: 1.0.2" : "Version: 1.0.2"}</span>
             </p>
         </div>
     )
